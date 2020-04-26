@@ -30,4 +30,10 @@ steps:
 - task: CopyFiles@2
   inputs:
     Contents: '_buildOutput/**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    TargetFolder: 'Build.ArtifactStagingDirectory'
+    CleanTargetFolder: true
+    OverWrite: true
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: $(Build.ArtifactStagingDirectory)
+    artifactName: MyBuildOutputs
