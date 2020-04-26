@@ -26,3 +26,8 @@ steps:
     command: 'publish'
     publishWebProjects: true
     arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
+
+- task: CopyFiles@2
+  inputs:
+    Contents: '_buildOutput/**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
